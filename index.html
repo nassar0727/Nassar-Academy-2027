@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>NASSAR Academy</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= LOGIN VIEW ================= -->
+<div id="loginView" class="login-shell">
+  <video class="login-bg-media" autoplay muted loop playsinline poster="assets/hero-poster.jpg" id="loginVideo">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="login-bg-overlay"></div>
+
+  <div class="login-content">
+    <img src="assets/logo.png" alt="NASSAR Academy" class="login-logo">
+    <div class="login-heading" data-i18n="loginHeading">Master Math &amp; Programming</div>
+    <div class="login-card">
+      <h2 data-i18n="studentLogin">Student Login</h2>
+      <div id="loginError" class="error-msg" data-i18n="invalidLogin">Invalid Student Code or Phone Number</div>
+      <div class="field">
+        <label for="loginCode" data-i18n="studentCode">Student Code</label>
+        <input type="text" id="loginCode" inputmode="numeric" placeholder="1001" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="loginPhone" data-i18n="phoneNumber">Phone Number</label>
+        <input type="tel" id="loginPhone" inputmode="tel" placeholder="01XXXXXXXXX" autocomplete="off">
+      </div>
+      <button class="btn btn-primary" id="loginBtn">
+        <span id="loginBtnText" data-i18n="login">Login</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= APP SHELL ================= -->
+<div id="appShell" class="hidden">
+  <header class="app-header">
+    <div class="brand">
+      <button class="icon-btn" id="homeBtn" aria-label="Home" data-nav="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+      </button>
+      <img src="assets/logo.png" alt="NASSAR Academy">
+      <span class="brand-name" id="headerTitle">NASSAR Academy</span>
+    </div>
+    <div class="header-icons">
+      <button class="lang-toggle-btn" id="langToggleBtn">EN</button>
+      <button class="icon-btn" id="logoutBtn" aria-label="Logout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="app-main">
+
+    <!-- ---------- HOME ---------- -->
+    <section id="homeView" class="view">
+      <div class="welcome-banner">
+        <div class="hi" id="welcomeName">Welcome 👋</div>
+        <div class="sub" id="welcomeMeta">—</div>
+      </div>
+      <div id="announcementCard" class="announcement-card hidden">
+        <div class="label" data-i18n="announcement">🔥 Announcement</div>
+        <div class="text" id="announcementText"></div>
+      </div>
+      <div class="menu-grid">
+        <button class="menu-tile" data-nav="code">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+          <span class="lbl" data-i18n="navCode">Code</span>
+        </button>
+        <button class="menu-tile" data-nav="exams">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>
+          <span class="lbl" data-i18n="navExams">Exams</span>
+        </button>
+        <button class="menu-tile" data-nav="profile">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg></span>
+          <span class="lbl" data-i18n="navProfile">My Profile</span>
+        </button>
+        <button class="menu-tile" data-nav="myscore">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+          <span class="lbl" data-i18n="navScore">My Score</span>
+        </button>
+        <button class="menu-tile" data-nav="files">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+          <span class="lbl" data-i18n="navFiles">Files</span>
+        </button>
+        <button class="menu-tile" data-nav="videos">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></span>
+          <span class="lbl" data-i18n="navVideos">Videos</span>
+        </button>
+        <button class="menu-tile" data-nav="schedule">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+          <span class="lbl" data-i18n="navSchedule">Schedule</span>
+        </button>
+        <button class="menu-tile" data-nav="mycodes">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 14 8"/></svg></span>
+          <span class="lbl" data-i18n="navMyCodes">My Codes</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ---------- CODE / IDE ---------- -->
+    <section id="codeView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span data-i18n="navCode">Code</span></div>
+      <div class="lang-switch">
+        <button class="lang-btn active" id="langJs" data-lang="javascript">JavaScript</button>
+        <button class="lang-btn" id="langPy" data-lang="python">Python</button>
+      </div>
+      <div class="editor-wrap">
+        <textarea id="codeEditor" dir="ltr" spellcheck="false" placeholder="console.log(&quot;Hello Nassar&quot;);"></textarea>
+      </div>
+      <div class="ide-actions">
+        <button class="btn btn-primary btn-sm" id="runBtn">▶ <span data-i18n="run">Run</span></button>
+        <button class="btn btn-outline btn-sm" id="clearBtn" data-i18n="clear">Clear</button>
+        <button class="btn btn-gold btn-sm" id="saveCodeBtn">💾 <span data-i18n="saveCode">Save Code</span></button>
+      </div>
+
+      <div id="mascotPop" class="mascot-pop hidden">
+        <img id="mascotImg" src="" alt="">
+        <div class="msg" id="mascotMsg"></div>
+      </div>
+
+      <div class="page-title" style="font-size:14px;margin-bottom:8px;"><span data-i18n="output">Output</span></div>
+      <div class="output-panel" id="outputPanel" dir="ltr"><span data-i18n="outputHint">Run your code to see output here.</span></div>
+    </section>
+
+    <!-- ---------- MY PROFILE ---------- -->
+    <section id="profileView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span data-i18n="navProfile">My Profile</span></div>
+      <div class="profile-card">
+        <img src="assets/logo.png" class="logo-sm" alt="logo">
+        <div class="name" id="pName">—</div>
+        <div class="profile-rows" id="profileRows"></div>
+        <img id="qrImg" alt="QR Code" width="140" height="140">
+        <div style="font-size:11px;color:var(--ink-faint);margin-top:6px;" data-i18n="qrHint">Scan for Student Code</div>
+      </div>
+    </section>
+
+    <!-- ---------- EXAMS LIST ---------- -->
+    <section id="examsView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span data-i18n="navExams">Exams</span></div>
+      <div id="examsList"></div>
+    </section>
+
+    <!-- ---------- EXAM RULES ---------- -->
+    <section id="examRulesView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span id="examRulesTitle">Exam</span></div>
+      <div class="card">
+        <div class="card-title" data-i18n="examRules">Exam Rules</div>
+        <div class="card-meta" id="examRulesMeta"></div>
+        <ul style="font-size:13.5px;color:var(--ink-dim);line-height:1.8;padding-inline-start:18px;margin:0 0 16px;">
+          <li data-i18n="rule1">Multiple choice, 4 options per question</li>
+          <li data-i18n="rule2">Timer starts once you begin and cannot be paused</li>
+          <li data-i18n="rule3">Only one attempt is allowed</li>
+          <li data-i18n="rule4">Exam submits automatically when time runs out</li>
+        </ul>
+        <button class="btn btn-primary" id="startExamBtn" data-i18n="startExam">Start Exam</button>
+      </div>
+    </section>
+
+    <!-- ---------- EXAM TAKING ---------- -->
+    <section id="examTakingView" class="view hidden">
+      <div class="exam-timer" id="examTimer">Time Left 00:00</div>
+      <div id="examQuestions"></div>
+      <button class="btn btn-primary" id="submitExamBtn" data-i18n="submitExam">Submit Exam</button>
+    </section>
+
+    <!-- ---------- EXAM RESULT ---------- -->
+    <section id="examResultView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span data-i18n="yourScore">Your Score</span></div>
+      <div class="result-hero">
+        <div class="label" id="resultExamTitle">Exam</div>
+        <div class="score" id="resultScore">0 / 0</div>
+        <div class="pct" id="resultPct">0%</div>
+      </div>
+      <button class="btn btn-outline" style="margin-top:16px;" data-nav="home" data-i18n="backHome">Back to Home</button>
+    </section>
+
+    <!-- ---------- MY SCORE ---------- -->
+    <section id="myscoreView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span data-i18n="navScore">My Score</span></div>
+      <div id="myscoreContent"></div>
+    </section>
+
+    <!-- ---------- FILES ---------- -->
+    <section id="filesView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span data-i18n="navFiles">Files</span></div>
+      <div id="filesList"></div>
+    </section>
+
+    <!-- ---------- VIDEOS ---------- -->
+    <section id="videosView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span data-i18n="navVideos">Videos</span></div>
+      <div id="videosList"></div>
+    </section>
+
+    <!-- ---------- SCHEDULE ---------- -->
+    <section id="scheduleView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span data-i18n="navSchedule">Schedule</span></div>
+      <div id="scheduleList"></div>
+    </section>
+
+    <!-- ---------- MY CODES ---------- -->
+    <section id="mycodesView" class="view hidden">
+      <div class="page-title"><span class="accent-dash"></span><span data-i18n="navMyCodes">My Codes</span></div>
+      <div id="mycodesList"></div>
+    </section>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-nav="home">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span>
+      <span data-i18n="navHome">Home</span>
+    </button>
+    <button class="nav-item" data-nav="code">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+      <span data-i18n="navCode">Code</span>
+    </button>
+    <button class="nav-item" data-nav="exams">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>
+      <span data-i18n="navExams">Exams</span>
+    </button>
+    <button class="nav-item" data-nav="myscore">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+      <span data-i18n="navScore">Score</span>
+    </button>
+    <button class="nav-item" data-nav="profile">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg></span>
+      <span data-i18n="navProfile">Profile</span>
+    </button>
+  </nav>
+</div>
+
+<!-- ---------- SAVE CODE MODAL ---------- -->
+<div id="saveCodeModal" class="modal-backdrop hidden">
+  <div class="modal-sheet">
+    <h3 data-i18n="saveCode">Save Code</h3>
+    <div class="field">
+      <label for="codeNameInput" data-i18n="codeName">Code Name</label>
+      <input type="text" id="codeNameInput" placeholder="Variables Practice">
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-outline" id="cancelSaveCodeBtn" data-i18n="cancel">Cancel</button>
+      <button class="btn btn-primary" id="confirmSaveCodeBtn" data-i18n="save">Save</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
