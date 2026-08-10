@@ -6,7 +6,7 @@
 
 // !! Paste your deployed Google Apps Script Web App URL here !!
 const CONFIG = {
-  API_URL: "https://script.google.com/macros/s/AKfycbwU7sTam27CrIziHmFJB0TdwVCZavZqMXkpW2e8GwlXfk_q1QVLLsxNeHBOuGh0cCYP/exec"
+  API_URL: "https://script.google.com/macros/s/AKfycby-fMsEgNr3w25yGEBS1LslnSO5d5mF6Jt-W8L4Bkv4oB4ZCKnDK3lz4IBL-JxOCkr7/exec"
 };
 
 const STORAGE_KEY = "nassar_student_code";
